@@ -3,17 +3,19 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 int main() {
-    std::ifstream input("liczby.txt");
-    std::ofstream output("wyniki4.txt");
-    std::ofstream output2("trojki.txt");
-    std::vector<int> numbers;
+    ifstream input("liczby.txt");
+    ofstream output("wyniki4.txt");
+    ofstream output2("trojki.txt");
+    vector<int> numbers;
     int number;
     while (input >> number) {
         numbers.push_back(number);
     }
     input.close();
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     int good_triples = 0;
     int good_quintuples = 0;
     for (int i = 0; i < numbers.size(); i++) {
@@ -40,4 +42,5 @@ int main() {
     output << "4.3\na) " << good_triples << "\nb) " << good_quintuples;
     output.close();
     output2.close();
+    return 0;
 }
